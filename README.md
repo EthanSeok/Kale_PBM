@@ -1,3 +1,12 @@
+## 진행 상황
+
+* 엽수 증가 모델 
+* 엽면적 지수 (LAI) 모델 
+
+<br>
+
+<br>
+
 ## 참고 글
 
 * [모델링 - 파이썬으로 FvCB A-Ci 커브 그려보기](https://ethanseok.github.io/2023-01-26/FvCB-post)
