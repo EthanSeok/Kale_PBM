@@ -23,6 +23,15 @@
 
 ## Cabbage_PBM으로 부터 수정 사항
 
+### pykale.py
+```python
+density = 24 # kale
+iniLN = 3 # kale
+daysRoot = 2 # kale
+pLeafForm = 0.8 # kale
+```
+<br>
+
 ### fraction.py
 sun incl 수정 및 sunght 고정
 ```python
