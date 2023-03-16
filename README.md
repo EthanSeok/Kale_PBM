@@ -78,7 +78,7 @@ def midRateLN(self, Ta):
 ```python
 def eachLenDistribution(self, leafnumber):  ## internal function
     eachLenDist = []
-    if leafnumber < 3:                    ## limit of leafnumber 8장 보다 작을 경우 오류 방지
+    if leafnumber < 3:                    ## limit of leafnumber 3장 보다 작을 경우 오류 방지
         for i in range(leafnumber):
             eachLenDist.append(1.0)
     else:
