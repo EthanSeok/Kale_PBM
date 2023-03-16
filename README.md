@@ -22,6 +22,24 @@
 <br>
 
 ## Cabbage_PBM으로 부터 수정 사항
+
+### fraction.py
+sun incl 및 sunght 고정
+```python
+def radFraction(self, doy, hour, PPFD, LAI):
+  
+                     중략 
+                     
+    incl = np.arcsin(sin_a + cos_b * np.cos(ha))           # sun inclination   rad
+    sunhgt = np.arcsin(max(0.05,sin_a + cos_b * np.cos(ha)))                    # solar height   rad
+    if sunhgt > 0.051: sunhgt = 1
+
+```
+결과
+![image](https://user-images.githubusercontent.com/93086581/224602314-55be6012-3421-4cf7-916a-8a9e4b9d1e8e.png)
+
+<br>
+
 ### stage.py
 
 Param
@@ -98,6 +116,17 @@ def calcBD(self, Ta, dap):
     kaleLeafArea = self.kaleLeafArea(int(leafNumber))
     lai  =  kaleLeafArea * plantDensity / 10000
     self.lai = lai
+```
+
+<br>
+
+verdvs max를 min으로 수정
+```python
+def calcVerdvs(self, Ta):
+    Ta  = max(Ta, 0.01)
+    rate = np.exp(-1*(np.log(Ta/optVer)**4))
+    self.sumVer += rate * conv
+    self.verdvs = min(1, self.sumVer/satVer)
 ```
 
 <br>
