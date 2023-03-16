@@ -52,8 +52,8 @@ class BD():      # balting development
     def midRateLN(self, Ta):
         # calculation leaf number
         if (Ta > 0.0) and (Ta < Txleaf): 
-            leafRate = Rxleaf *((Txleaf-Ta)/(Txleaf-Toleaf))*(Ta/Toleaf)**(Toleaf/(Txleaf-Toleaf))
-            leafRate = Rxleaf * 10 / self.leafNumber* ((Txleaf-Ta)/(Txleaf-Toleaf))*(Ta/Toleaf)**(Toleaf/(Txleaf-Toleaf))
+            leafRate = Rxleaf *((Txleaf-Ta)/(Txleaf-Toleaf))*(Ta/Toleaf)**(Toleaf/(Txleaf-Toleaf)) # cabbage
+            leafRate = Rxleaf * 7.54453390241129 / self.leafNumber* ((Txleaf-Ta)/(Txleaf-Toleaf))*(Ta/Toleaf)**(Toleaf/(Txleaf-Toleaf)) # Kale
             leafRate = leafRate * conv
         else:
             leafRate = 0.0
@@ -69,12 +69,14 @@ class BD():      # balting development
 
     def eachLenDistribution(self, leafnumber):  ## internal function
         eachLenDist = []
-        if leafnumber < 8:                    ## limit of leafnumber 8장 보다 작을 경우 오류 방지
+        if leafnumber < 3:                    ## limit of leafnumber 8장 보다 작을 경우 오류 방지
             for i in range(leafnumber):
                 eachLenDist.append(1.0)
         else:
-            a = 20.347*np.log(leafnumber) - 40.703
-            b = 0.2086*(leafnumber) + 1.6862
+            a = 20.347*np.log(leafnumber) - 40.703 # cabbage
+            a = 11.258377311819*np.log(leafnumber) - 9.66635313517988 # kale
+            b = 0.2086*(leafnumber) + 1.6862 # cabbage
+            b = 0.0929621981017087*(leafnumber) + 1.85657767789082 # kale
             for i in range(1,leafnumber+1):
                 eachLen = a * np.exp(-0.5 * ((i - b) / b)**2)
                 eachLenDist.append(eachLen)
@@ -82,7 +84,8 @@ class BD():      # balting development
         return eachLenDist
 
     def eachLeafArea(self, eachLenDist):       ## internal function
-        eachLeafArea = [0.3512*each**2 + 1.1328*each for each in eachLenDist]
+        eachLeafArea = [0.3512*each**2 + 1.1328*each for each in eachLenDist] # cabbage
+        eachLeafArea = [0.4179*each**2 + 3.6915*each - 2.128 for each in eachLenDist] # kale
         # print(eachLeafArea)
         return eachLeafArea
 
@@ -99,6 +102,13 @@ class BD():      # balting development
         numberGreenLeaf = int(numberGL)
         # print(numberGreenLeaf)
         return numberGreenLeaf
+
+    def kaleLeafArea(self, leafnumber):
+        a = self.eachLenDistribution(leafnumber)
+        leafArea = self.eachLeafArea(a)
+        totalArea = sum(leafArea)
+        return totalArea
+
 
     def plantGreenLeafArea(self, leafnumber):
         a = self.eachLenDistribution(leafnumber)
@@ -171,7 +181,11 @@ class BD():      # balting development
         leafNumber = self.leafNumber
         plantDensity = self.plantDensity
         plantGreenLeafArea = self.plantGreenLeafArea(int(leafNumber))
-        lai  =  plantGreenLeafArea * plantDensity / 10000
+        lai = plantGreenLeafArea * plantDensity / 10000
+
+        ###### kale
+        kaleLeafArea = self.kaleLeafArea(int(leafNumber))
+        lai  =  kaleLeafArea * plantDensity / 10000
         self.lai = lai
         
     

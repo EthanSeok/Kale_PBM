@@ -109,13 +109,13 @@ def run():
 
     latitude = 37.0
     # inifile = 'input/ricca17.csv' # cabbage
-    inifile = 'input/ricca17_chamber.csv' # kale
+    inifile = 'input/kale_env.csv' # kale
     # inifile = 'C:/code/aihub_kale/output/aihub_summary/kale/env_preprocessed.csv'
     dorh = 'h'
     outfile = 'output/ricca17_chamber.csv'
     # outfile = 'output/ricca17_test_result.csv'
     start = '2017-9-20'
-    end = '2017-12-13'
+    end = '2017-10-31'
     # start = '2021-9-01'
     # end = '2022-01-19'
 
@@ -129,7 +129,7 @@ def run():
     iniLN = 8 # cabbage
     iniLN = 3 # kale
     daysRoot = 10 # cabbage
-    daysRoot = 4 # kale
+    daysRoot = 2 # kale
     pLeafForm = 0.69 # cabbage
     pLeafForm = 0.8 # kale
 
