@@ -24,7 +24,7 @@
 ## Cabbage_PBM으로 부터 수정 사항
 
 ### fraction.py
-sun incl 및 sunght 고정
+sun incl 수정 및 sunght 고정
 ```python
 def radFraction(self, doy, hour, PPFD, LAI):
   
@@ -134,6 +134,6 @@ def calcVerdvs(self, Ta):
 <br>
 
 ## Python 실행 결과
-
+### 20230316
 ![image](https://user-images.githubusercontent.com/93086581/225551605-c25da5dc-6095-4b45-a28a-38328b2a8abd.png)
 
