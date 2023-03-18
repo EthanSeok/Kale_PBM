@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import scipy as sp
@@ -55,12 +56,15 @@ def GDD_figure(env, output_dir):
 
 def sigmoid_figure(env, output_dir):
     fig5, ax5 = plt.subplots()
-    colors = ["#fec44f", "#31a354"]
-    sns.scatterplot(x='GDD', y='leaf_incr_count', data=env, color=colors[0], label='leaf_incr_count')
-    sns.scatterplot(x='GDD', y='est_inc_leaf', data=env, color=colors[1], label='est_inc_leaf')
+    color = "#006837"
+    sns.scatterplot(x='GDD', y='leaf_incr_count', data=env, hue='temp', legend = False, palette='icefire', s=60)
+    sns.scatterplot(x='GDD', y='est_inc_leaf', data=env, label='est_inc_leaf', color=color, s=30)
     ax5.set_title('sigmoid')
     ax5.set_ylabel('Leaf Number')
-    ax5.legend()
+    norm = plt.Normalize(env['temp'].min(), env['temp'].max())
+    sm = plt.cm.ScalarMappable(cmap='icefire', norm=norm)
+    sm.set_array([])
+    ax5.figure.colorbar(sm)
     fig5.savefig(f"{output_dir}/sigmoid.png")
 
 def c18_model_figure(env, ln18, output_dir):
