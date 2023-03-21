@@ -154,7 +154,8 @@ def model_result(env, ln18, ln21, ln24, output_dir):
     ax9[0].set_ylabel('Leaf Number')
     ax9[0].set(ylim=(0, 18))
     ax9[0].set(xlim=(0, 60))
-    ax9[0].get_legend().remove()
+    # ax9[0].get_legend().remove()
+    ax9[0].set_xlabel('DAP ($day$)')
     ax9[0].set_title('18°C Model Leaf Number')
 
     c21 = env[env['temp'] == 21]
@@ -165,6 +166,7 @@ def model_result(env, ln18, ln21, ln24, output_dir):
     ax9[1].set(ylim=(0, 18))
     ax9[1].set(xlim=(0, 60))
     ax9[1].get_legend().remove()
+    ax9[1].set_xlabel('DAP ($day$)')
     ax9[1].set_title('21°C Model Leaf Number')
 
     c24 = env[env['temp'] == 24]
@@ -175,6 +177,8 @@ def model_result(env, ln18, ln21, ln24, output_dir):
     ax9[2].set(xlim=(0, 60))
     ax9[2].set(ylabel=None)
     ax9[2].set_title('24°C Model Leaf Number')
+    ax9[2].set_xlabel('DAP ($day$)')
+    ax9[2].get_legend().remove()
     fig9.tight_layout()
     fig9.savefig(fname=f'{output_dir}/model_results.png', bbox_inches='tight', pad_inches=0.2)
 
