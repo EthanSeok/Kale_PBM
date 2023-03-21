@@ -145,6 +145,6 @@ def calcVerdvs(self, Ta):
 ## Python 실행 결과
 ### 20230316
 ![model_results](https://user-images.githubusercontent.com/93086581/226378358-52d3707d-e496-4381-bd34-40eb8d479ab1.png)
-![LAI_compare](https://user-images.githubusercontent.com/93086581/226378439-98320d21-dc7f-494f-b2f8-424b2f82102f.png)
+![LAI_compare](https://user-images.githubusercontent.com/93086581/226524562-d4b919c8-a0aa-4d53-a3d4-9ac8c3087171.png)
 ![image](https://user-images.githubusercontent.com/93086581/225551605-c25da5dc-6095-4b45-a28a-38328b2a8abd.png)
 
