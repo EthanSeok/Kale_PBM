@@ -137,8 +137,8 @@ def leafarea_figure(lai, output_dir):
 def lai_comp(lai, output_dir):
     fig10, ax10 = plt.subplots()
     colors = ["#252525", '#3182bd']
-    sns.lineplot(x=lai['leafnumber_range2'], y=lai['LAI_expect'], color=colors[0], label='predict')
-    sns.scatterplot(x=lai['leafnumber_range2'], y=lai['LAI'], data=lai, marker='^', color=colors[1], s=75, label='observed')
+    sns.lineplot(x=lai['leafnumber_range2'], y=lai['LAI_expect'], color=colors[0], label='predict', linewidth=2)
+    sns.scatterplot(x=lai['leafnumber_range2'], y=lai['LAI'], data=lai, marker='^', color=colors[1], s=100, label='observed')
     ax10.set_title('LAI Compare')
     ax10.set_ylabel('LAI ($mm^2$)')
     ax10.set_xlabel('Leaf Number')
