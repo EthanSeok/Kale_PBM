@@ -85,7 +85,7 @@ class BD():      # balting development
 
     def eachLeafArea(self, eachLenDist):       ## internal function
         eachLeafArea = [0.3512*each**2 + 1.1328*each for each in eachLenDist] # cabbage
-        eachLeafArea = [0.4179*each**2 + 3.6915*each - 2.128 for each in eachLenDist] # kale
+        eachLeafArea = [0.4179*each**2 + 3.6915*each for each in eachLenDist] # kale
         # print(eachLeafArea)
         return eachLeafArea
 
